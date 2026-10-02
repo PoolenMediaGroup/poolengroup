@@ -361,7 +361,7 @@ footer a:hover{color:var(--foot-fg)}
         <h2>Kontakta oss</h2>
         <p>För samarbeten, press och frågor om bolaget. Gäller det ditt avtal hos någon av våra tjänster når du dem snabbast via respektive sajt.</p>
         <dl class="info">
-          <div><dt>E‑post</dt><dd><span id="mail">kontakt@poolengroup.se</span><button class="copy" type="button" data-copy="mail">Kopiera</button></dd></div>
+          <div><dt>E‑post</dt><dd><span id="mail">info@poolengroup.se</span><button class="copy" type="button" data-copy="mail">Kopiera</button></dd></div>
           <div><dt>Postadress</dt><dd>Valfrid Palmgrens gata 12<br>113 69 Stockholm</dd></div>
           <div><dt>Bolagsnamn</dt><dd>PMG Poolen Media Group AB</dd></div>
           <div><dt>Org.nr</dt><dd>559602‑5287</dd></div>
@@ -451,9 +451,9 @@ document.getElementById('contact-form').addEventListener('submit', function(e){
   var v=function(id){return document.getElementById(id).value.trim();};
   var subject='['+v('f-topic')+'] '+v('f-name')+(v('f-company')?', '+v('f-company'):'');
   var bodyTxt=v('f-msg')+'\n\n'+v('f-name')+'\n'+(v('f-company')?v('f-company')+'\n':'')+v('f-email')+'\n'+v('f-phone');
-  window.location.href='mailto:kontakt@poolengroup.se?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(bodyTxt);
+  window.location.href='mailto:info@poolengroup.se?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(bodyTxt);
   status.className='form-ok';
-  status.textContent='Ditt e‑postprogram öppnas med meddelandet ifyllt. Öppnas inget? Mejla oss på kontakt@poolengroup.se.';
+  status.textContent='Ditt e‑postprogram öppnas med meddelandet ifyllt. Öppnas inget? Mejla oss på info@poolengroup.se.';
 });
 </script>
 
