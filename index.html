@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="PMG Poolen Media Group AB utvecklar och driver jämförelsetjänster för svenska hushåll inom el, larm och solceller: Elpoolen, Larmpoolen och Solcellspoolen.">
+<meta property="og:title" content="Poolen Media Group">
+<meta property="og:description" content="Jämförelsetjänster för svenska hushåll inom el, larm och solceller.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://poolengroup.se/">
+<link rel="canonical" href="https://poolengroup.se/">
+<link rel="icon" href="favicon.png">
+<title>Poolen Media Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: corporate group site. White, 12-col feel, hairline dividers, one light-grey band per section rhythm, dark footer only. */
+:root{
+  color-scheme:light;
+  --bg:#FFFFFF;
+  --alt:#F5F6F7;
+  --surface:#FFFFFF;
+  --ink:#0B0C0E;
+  --text:#2B2E33;
+  --muted:#5E646C;
+  --line:#E3E5E8;
+  --accent:#F26B1D;
+  --foot:#F5F6F7;
+  --foot-fg:#0B0C0E;
+  --foot-muted:#5E646C;
+  --el:#1B5E80;
+  --larm:#C8102E;
+  --sol:#F2B705;
+  --font-head:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --font-mark:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--font-head);color:var(--ink);text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.015em}
+p{margin:0}
+.label{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* Logo */
+.logo{display:inline-flex;align-items:center;text-decoration:none}
+.logo img{height:22px;width:auto;display:block}
+.logo-light{background:#fff;padding:10px 14px;border-radius:3px}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.top nav{display:flex;align-items:center;gap:32px}
+.top nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500}
+.top nav ul a{text-decoration:none;color:var(--text)}
+.top nav ul a:hover{color:var(--ink)}
+@media (max-width:860px){.top nav ul{display:none}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:3px;font:600 .95rem/1 var(--font-body);text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap}
+.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark:hover{opacity:.88}
+.btn-line{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-line:hover{border-color:var(--ink)}
+.btn-sm{height:40px;padding:0 18px}
+.arrow::after{content:"→";font-weight:500}
+
+/* Hero */
+.hero{padding-block:clamp(56px,8vw,104px) clamp(48px,6vw,80px);border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,80px);align-items:center}
+@media (max-width:920px){.hero-grid{grid-template-columns:1fr}}
+.hero-copy{display:grid;gap:24px;min-width:0}
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.08;letter-spacing:-.03em;max-width:18ch}
+.hero .lead{font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--muted);max-width:56ch}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;padding-top:8px}
+
+.portfolio{border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden;min-width:0}
+.portfolio-head{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid var(--line);background:var(--alt)}
+.portfolio-row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px;border-bottom:1px solid var(--line);text-decoration:none}
+.portfolio-row:last-child{border-bottom:0}
+.portfolio-row .cat{font-size:.85rem;color:var(--muted);margin-top:4px}
+
+/* Wordmarks */
+.wordmark{display:block;height:30px;width:auto;max-width:100%}
+.brand .wordmark{height:24px}
+
+/* Status */
+.status{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--muted);opacity:.5}
+.status.live{color:#16803C}
+.status.live::before{background:#16A34A;opacity:1}
+
+/* Facts strip */
+.facts-strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.facts-strip > div{padding:28px 0;display:grid;gap:4px;border-right:1px solid var(--line);padding-inline:24px;min-width:0}
+.facts-strip > div:first-child{padding-left:0}
+.facts-strip > div:last-child{border-right:0}
+.facts-strip strong{font-family:var(--font-head);font-weight:600;font-size:1.35rem;color:var(--ink);letter-spacing:-.01em}
+.facts-strip span{font-size:.9rem;color:var(--muted)}
+@media (max-width:760px){.facts-strip{grid-template-columns:1fr 1fr}.facts-strip > div{padding-inline:0 16px;border-right:0;border-bottom:1px solid var(--line)}.facts-strip > div:nth-last-child(-n+2){border-bottom:0}}
+
+/* Sections */
+section{padding-block:clamp(64px,8vw,112px)}
+section.alt{background:var(--alt);border-block:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end;margin-bottom:48px}
+.sec-head > div{display:grid;gap:14px;min-width:0}
+.sec-head h2{font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.12}
+.sec-head p{color:var(--muted);max-width:56ch}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr;align-items:start}}
+
+/* Brand cards */
+.brands{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:920px){.brands{grid-template-columns:1fr}}
+.brand{display:grid;grid-template-rows:auto auto 1fr auto;gap:18px;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0}
+.brand-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand .cat{font-size:.85rem;font-weight:600;color:var(--ink)}
+.brand p{color:var(--muted);font-size:.95rem}
+.brand-foot{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid var(--line);font-size:.9rem}
+.brand-foot a{text-decoration:none;font-weight:600;color:var(--ink)}
+.brand-foot a:hover{text-decoration:underline}
+.brand-foot .domain{color:var(--muted)}
+.more{margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:20px 28px;border:1px dashed var(--line);border-radius:4px;color:var(--muted);background:var(--surface)}
+.more strong{color:var(--ink);font-weight:600}
+
+/* Principles */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.cols > div{display:grid;gap:12px;align-content:start;padding:28px 28px 0 0;min-width:0}
+.cols > div + div{padding-left:28px;border-left:1px solid var(--line)}
+.cols h3{font-size:1.15rem}
+.cols p{color:var(--muted)}
+@media (max-width:860px){.cols{grid-template-columns:1fr}.cols > div,.cols > div + div{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}}
+
+/* Process */
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;margin:0;padding:0;counter-reset:p}
+.process li{display:grid;gap:10px;align-content:start;padding:28px;background:var(--surface);border:1px solid var(--line);border-radius:4px;min-width:0}
+.process li::before{counter-increment:p;content:"Steg " counter(p);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.process h3{font-size:1.15rem}
+.process p{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.process{grid-template-columns:1fr}}
+
+/* Partner */
+.partner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:860px){.partner{grid-template-columns:1fr}}
+.partner-copy{display:grid;gap:18px;min-width:0}
+.partner-copy h2{font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.12}
+.partner-copy p{color:var(--muted);max-width:52ch}
+.checks{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:12px}
+.checks li{display:grid;grid-template-columns:22px 1fr;gap:12px;color:var(--text)}
+.checks li::before{content:"✓";display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:.72rem;font-weight:700;margin-top:2px}
+.segments{border:1px solid var(--line);border-radius:4px;background:var(--surface);overflow:hidden}
+.segment{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:22px 24px;border-bottom:1px solid var(--line)}
+.segment:last-child{border-bottom:0}
+.segment .bar{width:4px;height:36px;border-radius:2px}
+.segment strong{display:block;color:var(--ink);font-weight:600}
+.segment span{font-size:.9rem;color:var(--muted)}
+
+/* Contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,80px);align-items:start}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+.contact-copy{display:grid;gap:18px;min-width:0}
+.contact-copy h2{font-size:clamp(1.8rem,3.2vw,2.5rem);line-height:1.12}
+.contact-copy > p{color:var(--muted);max-width:48ch}
+dl.info{margin:12px 0 0;display:grid;border-top:1px solid var(--line)}
+dl.info div{display:grid;grid-template-columns:8.5rem 1fr;gap:12px;padding-block:14px;border-bottom:1px solid var(--line)}
+@media (max-width:440px){dl.info div{grid-template-columns:1fr;gap:2px}}
+dl.info dt{font-size:.85rem;color:var(--muted)}
+dl.info dd{margin:0;color:var(--ink);font-weight:500;min-width:0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.copy{margin-left:10px;font:500 .78rem var(--font-body);background:none;border:1px solid var(--line);border-radius:4px;padding:2px 8px;color:var(--muted);cursor:pointer}
+.copy:hover{color:var(--ink);border-color:var(--ink)}
+form{display:grid;gap:16px;padding:clamp(22px,3vw,36px);border-radius:4px;background:var(--surface);border:1px solid var(--line)}
+form h3{font-size:1.2rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:520px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.88rem;font-weight:500;color:var(--ink);min-width:0}
+input,select,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:3px;padding:11px 13px;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-offset:-1px}
+textarea{min-height:130px;resize:vertical}
+.form-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.form-note{font-size:.88rem;color:var(--muted)}
+.form-ok{font-size:.92rem;padding:12px 14px;border-radius:3px;background:var(--alt);border:1px solid var(--line);color:var(--text)}
+
+/* Footer */
+footer{border-top:1px solid var(--line);background:var(--foot);color:var(--foot-muted);padding-block:64px 32px;font-size:.92rem}
+footer .logo{color:var(--foot-fg)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+.foot-grid > div{display:grid;gap:12px;align-content:start;min-width:0}
+footer h4{margin:0;font:600 .8rem var(--font-body);letter-spacing:.08em;text-transform:uppercase;color:var(--foot-fg)}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--foot-fg)}
+.foot-legal{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:.85rem}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="logos/group.png" alt="Poolen Group AB"></a>
+    <nav aria-label="Huvudmeny">
+      <ul>
+        <li><a href="#varumarken">Varumärken</a></li>
+        <li><a href="#om-oss">Om oss</a></li>
+        <li><a href="#partner">Partner</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a class="btn btn-dark btn-sm" href="#kontakt">Kontakta oss</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="label">PMG Poolen Media Group AB</p>
+        <h1>Vi gör det enkelt att välja rätt avtal för hemmet.</h1>
+        <p class="lead">Poolen Media Group utvecklar och driver jämförelsetjänster för svenska hushåll. Vi samlar el, larm och solceller under en gemensam plattform och kopplar ihop hushåll med seriösa leverantörer.</p>
+        <div class="hero-actions">
+          <a class="btn btn-dark arrow" href="#varumarken">Våra varumärken</a>
+          <a class="btn btn-line" href="#partner">Bli partner</a>
+        </div>
+      </div>
+      <div class="portfolio" aria-label="Varumärken i gruppen">
+        <div class="portfolio-head"><span class="label">Varumärken i gruppen</span><span class="label">Status</span></div>
+        <a class="portfolio-row" href="https://elpoolen.se" target="_blank" rel="noopener">
+          <div><img class="wordmark" src="logos/el.png" alt="Elpoolen"><div class="cat">Elavtal</div></div>
+          <span class="status live">Live</span>
+        </a>
+        <div class="portfolio-row">
+          <div><img class="wordmark" src="logos/larm.png" alt="Larmpoolen"><div class="cat">Hemlarm</div></div>
+          <span class="status">Lanseras snart</span>
+        </div>
+        <div class="portfolio-row">
+          <div><img class="wordmark" src="logos/sol.png" alt="Solcellspoolen"><div class="cat">Solceller</div></div>
+          <span class="status">Lanseras snart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="facts-strip">
+      <div><strong>3 varumärken</strong><span>El, larm och solceller</span></div>
+      <div><strong>1 plattform</strong><span>Gemensam teknik och data</span></div>
+      <div><strong>0 kr</strong><span>För hushållet att jämföra</span></div>
+      <div><strong>Stockholm</strong><span>Huvudkontor</span></div>
+    </div>
+  </div>
+
+  <section id="varumarken">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Varumärken</p>
+          <h2>Specialiserade tjänster för varje avtal</h2>
+        </div>
+        <p>Varje varumärke har ett tydligt område och ett eget team för innehåll och partnerskap. Bakom dem finns samma plattform, samma krav på tydlighet och samma kundservice.</p>
+      </div>
+      <div class="brands">
+        <article class="brand">
+          <div class="brand-top"><img class="wordmark" src="logos/el.png" alt="Elpoolen"><span class="status live">Live</span></div>
+          <p class="cat">Jämförelse av elavtal</p>
+          <p>Jämför elavtal utifrån förbrukning och elområde och byt direkt. Med Elpoolen Autopilot får kunden hjälp att byta i tid.</p>
+          <div class="brand-foot"><span class="domain">elpoolen.se</span><a class="arrow" href="https://elpoolen.se" target="_blank" rel="noopener">Besök </a></div>
+        </article>
+        <article class="brand">
+          <div class="brand-top"><img class="wordmark" src="logos/larm.png" alt="Larmpoolen"><span class="status">Lanseras snart</span></div>
+          <p class="cat">Offerter på hemlarm</p>
+          <p>Pris och upplägg på hemlarm sätts per bostad. Larmpoolen samlar offerter från flera larmbolag så att kunden kan jämföra på lika villkor.</p>
+          <div class="brand-foot"><span class="domain">larmpoolen.se</span><span class="status">Snart</span></div>
+        </article>
+        <article class="brand">
+          <div class="brand-top"><img class="wordmark" src="logos/sol.png" alt="Solcellspoolen"><span class="status">Lanseras snart</span></div>
+          <p class="cat">Offerter på solceller</p>
+          <p>Kunden beskriver tak och förbrukning och får offerter från installatörer att jämföra sida vid sida.</p>
+          <div class="brand-foot"><span class="domain">solcellspoolen.se</span><span class="status">Snart</span></div>
+        </article>
+      </div>
+      <div class="more">
+        <span><strong>Fler områden är under utveckling.</strong> Vi bygger ut gruppen inom fler avtal där hushåll gör stora och återkommande val.</span>
+        <a class="btn btn-line btn-sm arrow" href="#kontakt">Hör av dig</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="om-oss" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Om oss</p>
+          <h2>Ett bolag med en tydlig uppgift</h2>
+        </div>
+        <p>PMG Poolen Media Group AB grundades 2026 i Stockholm. Vi bygger jämförelsetjänster som gör hushållets avtal begripliga och lätta att byta, och vi gör det med samma arbetssätt i varje varumärke.</p>
+      </div>
+      <div class="cols">
+        <div>
+          <h3>Kostnadsfritt för hushållet</h3>
+          <p>Att jämföra och byta via våra tjänster kostar ingenting. Vi får ersättning från de bolag vi samarbetar med när en kund tecknar avtal.</p>
+        </div>
+        <div>
+          <h3>Tydlighet före allt</h3>
+          <p>Pris, villkor och bindningstid ska gå att förstå direkt. Kunden ska veta vad avtalet innebär innan det tecknas.</p>
+        </div>
+        <div>
+          <h3>Byggt för att skala</h3>
+          <p>En gemensam plattform för teknik, data och kundservice gör att vi kan lansera nya varumärken snabbt med samma kvalitet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sa-fungerar-det">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="label">Så fungerar det</p>
+          <h2>Från jämförelse till nytt avtal</h2>
+        </div>
+        <p>Samma flöde i alla våra tjänster, anpassat efter om priset är fast för alla eller sätts per bostad.</p>
+      </div>
+      <ol class="process">
+        <li><h3>Kunden jämför</h3><p>Hushållet fyller i några uppgifter och ser vilka avtal eller offerter som passar.</p></li>
+        <li><h3>Kunden väljer</h3><p>Pris och villkor visas tydligt. Kunden väljer själv och tecknar avtalet via oss eller direkt hos leverantören.</p></li>
+        <li><h3>Leverantören levererar</h3><p>Vår partner tar över kundrelationen och vi följer upp att bytet har gått som det ska.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="partner" class="alt">
+    <div class="wrap partner">
+      <div class="partner-copy">
+        <p class="label">För leverantörer</p>
+        <h2>Bli partner till Poolen Media Group</h2>
+        <p>Vi samarbetar med bolag som vill nå hushåll som aktivt letar efter ett nytt avtal. Ersättningen bygger på resultat.</p>
+        <ul class="checks">
+          <li>Kunder som redan har jämfört och valt</li>
+          <li>Tydlig uppföljning per varumärke och kanal</li>
+          <li>En kontaktperson för hela gruppen</li>
+        </ul>
+        <div style="padding-top:8px"><a class="btn btn-dark arrow" href="#kontakt">Boka ett samtal</a></div>
+      </div>
+      <div class="segments">
+        <div class="segment"><span class="bar" style="background:var(--el)"></span><div><strong>Elbolag</strong><span>Synas i Elpoolens jämförelse och i Autopilot</span></div><span class="status live">Öppet</span></div>
+        <div class="segment"><span class="bar" style="background:var(--larm)"></span><div><strong>Larmbolag</strong><span>Ta emot offertförfrågningar via Larmpoolen</span></div><span class="status">Snart</span></div>
+        <div class="segment"><span class="bar" style="background:var(--sol)"></span><div><strong>Solcellsinstallatörer</strong><span>Ta emot förfrågningar via Solcellspoolen</span></div><span class="status">Snart</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="wrap contact">
+      <div class="contact-copy">
+        <p class="label">Kontakt</p>
+        <h2>Kontakta oss</h2>
+        <p>För samarbeten, press och frågor om bolaget. Gäller det ditt avtal hos någon av våra tjänster når du dem snabbast via respektive sajt.</p>
+        <dl class="info">
+          <div><dt>E‑post</dt><dd><span id="mail">kontakt@poolengroup.se</span><button class="copy" type="button" data-copy="mail">Kopiera</button></dd></div>
+          <div><dt>Postadress</dt><dd>Valfrid Palmgrens gata 12<br>113 69 Stockholm</dd></div>
+          <div><dt>Bolagsnamn</dt><dd>PMG Poolen Media Group AB</dd></div>
+          <div><dt>Org.nr</dt><dd>559602‑5287</dd></div>
+        </dl>
+      </div>
+      <form id="contact-form" novalidate>
+        <h3>Skicka ett meddelande</h3>
+        <div class="row">
+          <label for="f-name">Namn<input id="f-name" name="name" autocomplete="name" required></label>
+          <label for="f-company">Företag<input id="f-company" name="company" autocomplete="organization"></label>
+        </div>
+        <div class="row">
+          <label for="f-email">E‑post<input id="f-email" name="email" type="email" autocomplete="email" required></label>
+          <label for="f-phone">Telefon<input id="f-phone" name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <label for="f-topic">Ärende
+          <select id="f-topic" name="topic">
+            <option>Samarbete eller partnerskap</option>
+            <option>Press och media</option>
+            <option>Fråga om en av våra tjänster</option>
+            <option>Övrigt</option>
+          </select>
+        </label>
+        <label for="f-msg">Meddelande<textarea id="f-msg" name="message" required></textarea></label>
+        <div class="form-foot">
+          <p class="form-note" id="form-status" aria-live="polite">Vi svarar inom två arbetsdagar.</p>
+          <button class="btn btn-dark" type="submit">Skicka</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top"><img src="logos/group.png" alt="Poolen Group AB"></a>
+        <p>Jämförelsetjänster för svenska hushåll inom el, larm och solceller.</p>
+      </div>
+      <div>
+        <h4>Varumärken</h4>
+        <ul>
+          <li><a href="https://elpoolen.se" target="_blank" rel="noopener">Elpoolen</a></li>
+          <li>Larmpoolen</li>
+          <li>Solcellspoolen</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Bolaget</h4>
+        <ul>
+          <li><a href="#om-oss">Om oss</a></li>
+          <li><a href="#partner">Partner</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Juridiskt</h4>
+        <ul>
+          <li>Integritetspolicy</li>
+          <li>Cookies</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 PMG Poolen Media Group AB · Org.nr 559602‑5287</span>
+      <span>Valfrid Palmgrens gata 12, 113 69 Stockholm</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.copy);
+    var done = function(){ btn.textContent = 'Kopierad'; setTimeout(function(){ btn.textContent = 'Kopiera'; }, 1600); };
+    var sel = function(){ var r=document.createRange(); r.selectNodeContents(el); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try { navigator.clipboard.writeText(el.textContent.trim()).then(done, sel); } catch(e){ sel(); }
+  });
+});
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var status = document.getElementById('form-status');
+  var missing = ['f-name','f-email','f-msg'].filter(function(id){ return !document.getElementById(id).value.trim(); });
+  if (missing.length){ status.className='form-note'; status.textContent='Fyll i namn, e‑post och meddelande.'; document.getElementById(missing[0]).focus(); return; }
+  if (!document.getElementById('f-email').checkValidity()){ status.className='form-note'; status.textContent='Kontrollera e‑postadressen.'; document.getElementById('f-email').focus(); return; }
+  var v=function(id){return document.getElementById(id).value.trim();};
+  var subject='['+v('f-topic')+'] '+v('f-name')+(v('f-company')?', '+v('f-company'):'');
+  var bodyTxt=v('f-msg')+'\n\n'+v('f-name')+'\n'+(v('f-company')?v('f-company')+'\n':'')+v('f-email')+'\n'+v('f-phone');
+  window.location.href='mailto:kontakt@poolengroup.se?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(bodyTxt);
+  status.className='form-ok';
+  status.textContent='Ditt e‑postprogram öppnas med meddelandet ifyllt. Öppnas inget? Mejla oss på kontakt@poolengroup.se.';
+});
+</script>
+
+</body>
+</html>
