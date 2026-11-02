@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="PMG Poolen Media Group AB utvecklar och driver jämförelsetjänster för svenska hushåll inom el, larm och solceller: Elpoolen, Larmpoolen och Solcellspoolen.">
+<meta name="description" content="PMG Poolen Media Group AB utvecklar och driver jämförelsetjänster för svenska hushåll inom el, larm, solceller och mobilabonnemang: Elpoolen, Larmpoolen, Solcellspoolen och Mobilpoolen.">
 <meta property="og:title" content="Poolen Media Group">
-<meta property="og:description" content="Jämförelsetjänster för svenska hushåll inom el, larm och solceller.">
+<meta property="og:description" content="Jämförelsetjänster för svenska hushåll inom el, larm, solceller och mobil.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://poolengroup.se/">
 <link rel="canonical" href="https://poolengroup.se/">
@@ -34,6 +34,7 @@
   --el:#1B5E80;
   --larm:#C8102E;
   --sol:#F2B705;
+  --mobil:#3B28CC;
   --font-head:"Inter","Helvetica Neue",Arial,sans-serif;
   --font-body:"Inter","Helvetica Neue",Arial,sans-serif;
   --font-mark:"Plus Jakarta Sans","Helvetica Neue",Arial,sans-serif;
@@ -120,10 +121,10 @@ section.alt{background:var(--alt);border-block:1px solid var(--line)}
 @media (max-width:860px){.sec-head{grid-template-columns:1fr;align-items:start}}
 
 /* Brand cards */
-.brands{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.brands{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 @media (max-width:920px){.brands{grid-template-columns:1fr}}
 .brand{display:grid;grid-template-rows:auto auto 1fr auto;gap:18px;padding:28px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--line);border-radius:4px;min-width:0;box-shadow:0 1px 2px rgba(16,24,40,.04)}
-.b-el{border-top-color:var(--el)} .b-larm{border-top-color:var(--larm)} .b-sol{border-top-color:var(--sol)}
+.b-el{border-top-color:var(--el)} .b-larm{border-top-color:var(--larm)} .b-sol{border-top-color:var(--sol)} .b-mobil{border-top-color:var(--mobil)}
 .brand-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .brand .cat{font-size:.85rem;font-weight:600;color:var(--ink)}
 .brand p{color:var(--muted);font-size:.95rem}
@@ -228,7 +229,7 @@ footer a:hover{color:var(--foot-fg)}
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <h1>Vi gör det enkelt att välja rätt avtal för hemmet.</h1>
-        <p class="lead">Poolen Media Group utvecklar och driver jämförelsetjänster för svenska hushåll. Vi samlar el, larm och solceller under en gemensam plattform och kopplar ihop hushåll med seriösa leverantörer.</p>
+        <p class="lead">Poolen Media Group utvecklar och driver jämförelsetjänster för svenska hushåll. Vi samlar el, larm, solceller och mobilabonnemang under en gemensam plattform och kopplar ihop hushåll med seriösa leverantörer.</p>
         <div class="hero-actions">
           <a class="btn btn-dark arrow" href="#varumarken">Våra varumärken</a>
           <a class="btn btn-line" href="#partner">Bli partner</a>
@@ -248,6 +249,10 @@ footer a:hover{color:var(--foot-fg)}
           <div><img class="wordmark" src="logos/sol.png" alt="Solcellspoolen"><div class="cat">Solceller</div></div>
           <span class="status">Lanseras snart</span>
         </a>
+        <div class="portfolio-row">
+          <div><img class="wordmark" src="logos/mobil.png" alt="Mobilpoolen"><div class="cat">Mobilabonnemang</div></div>
+          <span class="status">Lanseras snart</span>
+        </div>
       </div>
     </div>
   </div>
@@ -280,6 +285,12 @@ footer a:hover{color:var(--foot-fg)}
           <p class="cat">Offerter på solceller</p>
           <p>Kunden beskriver tak och förbrukning och får offerter från installatörer att jämföra sida vid sida.</p>
           <div class="brand-foot"><span class="domain">solcellspoolen.se</span><a class="arrow" href="https://solcellspoolen.se" target="_blank" rel="noopener">Besök </a></div>
+        </article>
+        <article class="brand b-mobil">
+          <div class="brand-top"><img class="wordmark" src="logos/mobil.png" alt="Mobilpoolen"><span class="status">Lanseras snart</span></div>
+          <p class="cat">Jämförelse av mobilabonnemang</p>
+          <p>Jämför mobilabonnemang efter vad de kostar över ett år, med kampanj och startavgift inräknade. Med Mobilpoolen Autopilot får kunden besked innan kampanjen tar slut.</p>
+          <div class="brand-foot"><span class="domain">mobilpoolen.se</span></div>
         </article>
       </div>
       <div class="more">
@@ -349,6 +360,7 @@ footer a:hover{color:var(--foot-fg)}
         <div class="segment"><span class="bar" style="background:var(--el)"></span><div><strong>Elbolag</strong><span>Synas i Elpoolens jämförelse och i Autopilot</span></div><span class="status live">Öppet</span></div>
         <div class="segment"><span class="bar" style="background:var(--larm)"></span><div><strong>Larmbolag</strong><span>Ta emot offertförfrågningar via Larmpoolen</span></div><span class="status">Snart</span></div>
         <div class="segment"><span class="bar" style="background:var(--sol)"></span><div><strong>Solcellsinstallatörer</strong><span>Ta emot förfrågningar via Solcellspoolen</span></div><span class="status">Snart</span></div>
+        <div class="segment"><span class="bar" style="background:var(--mobil)"></span><div><strong>Mobiloperatörer</strong><span>Samarbete kring Mobilpoolen och Autopilot</span></div><span class="status">Snart</span></div>
       </div>
     </div>
   </section>
@@ -399,7 +411,7 @@ footer a:hover{color:var(--foot-fg)}
     <div class="foot-grid">
       <div>
         <a class="logo" href="#top"><img src="logos/group.png" alt="Poolen Group AB"></a>
-        <p>Jämförelsetjänster för svenska hushåll inom el, larm och solceller.</p>
+        <p>Jämförelsetjänster för svenska hushåll inom el, larm, solceller och mobil.</p>
       </div>
       <div>
         <h4>Varumärken</h4>
@@ -407,6 +419,7 @@ footer a:hover{color:var(--foot-fg)}
           <li><a href="https://elpoolen.se" target="_blank" rel="noopener">Elpoolen</a></li>
           <li>Larmpoolen</li>
           <li>Solcellspoolen</li>
+          <li>Mobilpoolen</li>
         </ul>
       </div>
       <div>
