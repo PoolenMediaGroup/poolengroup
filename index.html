@@ -94,6 +94,9 @@ a.portfolio-row .status::after{content:"→";margin-left:10px;color:var(--muted)
 /* Wordmarks */
 .wordmark{display:block;height:30px;width:auto;max-width:100%}
 .brand .wordmark{height:24px}
+/* Samma strecktjocklek som el och mobil: larm och sol har kraftigare typsnitt i bilden. */
+.wordmark.wm-larm{height:26px}.brand .wordmark.wm-larm{height:21px}
+.wordmark.wm-sol{height:25px}.brand .wordmark.wm-sol{height:20px}
 
 /* Status */
 .status{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--muted);white-space:nowrap}
@@ -242,11 +245,11 @@ footer a:hover{color:var(--foot-fg)}
           <span class="status live">Live</span>
         </a>
         <a class="portfolio-row" href="https://larmpoolen.se" target="_blank" rel="noopener">
-          <div><img class="wordmark" src="logos/larm.png" alt="Larmpoolen"><div class="cat">Hemlarm</div></div>
+          <div><img class="wordmark wm-larm" src="logos/larm.png" alt="Larmpoolen"><div class="cat">Hemlarm</div></div>
           <span class="status">Lanseras snart</span>
         </a>
         <a class="portfolio-row" href="https://solcellspoolen.se" target="_blank" rel="noopener">
-          <div><img class="wordmark" src="logos/sol.png" alt="Solcellspoolen"><div class="cat">Solceller</div></div>
+          <div><img class="wordmark wm-sol" src="logos/sol.png" alt="Solcellspoolen"><div class="cat">Solceller</div></div>
           <span class="status">Lanseras snart</span>
         </a>
         <div class="portfolio-row">
@@ -275,13 +278,13 @@ footer a:hover{color:var(--foot-fg)}
           <div class="brand-foot"><span class="domain">elpoolen.se</span><a class="arrow" href="https://elpoolen.se" target="_blank" rel="noopener">Besök </a></div>
         </article>
         <article class="brand b-larm">
-          <div class="brand-top"><img class="wordmark" src="logos/larm.png" alt="Larmpoolen"><span class="status">Lanseras snart</span></div>
+          <div class="brand-top"><img class="wordmark wm-larm" src="logos/larm.png" alt="Larmpoolen"><span class="status">Lanseras snart</span></div>
           <p class="cat">Offerter på hemlarm</p>
           <p>Pris och upplägg på hemlarm sätts per bostad. Larmpoolen samlar offerter från flera larmbolag så att kunden kan jämföra på lika villkor.</p>
           <div class="brand-foot"><span class="domain">larmpoolen.se</span><a class="arrow" href="https://larmpoolen.se" target="_blank" rel="noopener">Besök </a></div>
         </article>
         <article class="brand b-sol">
-          <div class="brand-top"><img class="wordmark" src="logos/sol.png" alt="Solcellspoolen"><span class="status">Lanseras snart</span></div>
+          <div class="brand-top"><img class="wordmark wm-sol" src="logos/sol.png" alt="Solcellspoolen"><span class="status">Lanseras snart</span></div>
           <p class="cat">Offerter på solceller</p>
           <p>Kunden beskriver tak och förbrukning och får offerter från installatörer att jämföra sida vid sida.</p>
           <div class="brand-foot"><span class="domain">solcellspoolen.se</span><a class="arrow" href="https://solcellspoolen.se" target="_blank" rel="noopener">Besök </a></div>
